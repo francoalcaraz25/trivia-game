@@ -1,0 +1,131 @@
+.newgame-difficulty-options {
+    display: flex;
+    gap: .5rem;
+}
+
+.newgame-title {
+    font-size: 1.8rem;
+}
+
+.newgame-category {
+    padding: .5rem;
+    width: 80%;
+
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: .2rem;
+
+    background-color: rgb(200, 200, 200);
+    border: none;
+    border-radius: 10px;
+}
+.newgame-category option {
+    background-color: white;
+    border-bottom: 1px solid darkgray;
+}
+
+
+.NewGameModal label, .NewGameModal input {
+    cursor: pointer;
+}
+
+.difficulty-option {
+    background-color: white;
+    width: 6em;
+    
+    border-bottom: 2px solid black;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    box-shadow: 0 5px black;
+    transform: translateY(-5px);
+
+    transition: all .1s;
+}
+.difficulty-option:hover:not(.checked) {
+    filter:brightness(1.5);
+}
+.difficulty-option.checked {
+    transform: none;
+    box-shadow: none;
+    color: white;
+}
+
+/*--Difficulty buttons colors-----------------*/
+.difficulty-option.easy {
+    background-color: green;
+}
+.difficulty-option.medium {
+    background-color: darkgoldenrod;
+}
+.difficulty-option.hard {
+    background-color: brown;
+}
+
+.difficulty-option.easy.checked {
+    background-color: limegreen;
+}
+.difficulty-option.medium.checked {
+    background-color: orange
+}
+.difficulty-option.hard.checked {
+    background-color: red;
+}
+
+/*-----------------------------------------*/
+
+.difficulty-option label {
+    padding: 8px;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+.difficulty-option input {
+    width: 30px;
+    margin: 0;
+    display: none;
+}
+
+.newgame-number-options {
+    display: flex;
+    gap: 1rem;
+}
+.number-option {
+    display: flex;
+    background-color: rgba(0, 0, 0, .3);
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 2rem;
+    height: 2rem;
+
+    box-shadow: 0 5px black;
+    transform: translateY(-5px);
+
+    transition: all .1s;
+}
+.number-option:hover:not(.checked) {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.number-option.checked {
+    transform: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    
+}
+
+.number-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.number-option input {
+    display: none;
+}
+
+.newgame-start {
+    margin-top: 1.5rem;
+}

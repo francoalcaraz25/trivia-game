@@ -1,0 +1,29 @@
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.Game {
+    display: flex;
+    flex-direction: column;
+}
+
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 64px;
+    height: 64px;
+
+    border: .5rem solid rgba(0, 0, 0, .2);
+    border-top: .5rem solid darkgray;
+    border-radius: 50%;
+
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
