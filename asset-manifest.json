@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/trivia-game/static/css/main.5e3b333c.css",
+    "main.js": "/trivia-game/static/js/main.06f515af.js",
+    "static/media/wrong-icon.png": "/trivia-game/static/media/wrong-icon.39109d23229335de0a21.png",
+    "static/media/correct-icon.png": "/trivia-game/static/media/correct-icon.e7f61d7e4b9f6c357fae.png",
+    "index.html": "/trivia-game/index.html",
+    "main.5e3b333c.css.map": "/trivia-game/static/css/main.5e3b333c.css.map",
+    "main.06f515af.js.map": "/trivia-game/static/js/main.06f515af.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e3b333c.css",
+    "static/js/main.06f515af.js"
+  ]
+}
