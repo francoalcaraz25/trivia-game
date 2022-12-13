@@ -1,7 +1,7 @@
 import './App.css';
 import Game from './components/Game/Game.js';
 import Menu from './components/Menu/Menu.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   //--Track what App 'section' is currently being displayed
@@ -18,7 +18,29 @@ function App() {
   const [ difficulty, setDifficulty ] = useState("easy");
   const [ totalQuestions, setTotalQuestions ] = useState(10);
 
-  /****ADD PROFILE SYSTEM HERE. CURRENT PROFILE AND A LIST OF PROFILES (LOCAL STORAGE)******/
+
+  //--Current Selected Profile--{Object}------------
+  const [ selectedProfile, setSelectedProfile ] = useState({});
+
+  //--Profiles--(stored in localStorage)--[Array of objects]--------------
+  const [ profiles, setProfiles ] = useState(() => {
+    const profs = localStorage.getItem("profiles");
+    if (profs) {
+      return JSON.parse(profs);
+    } else {
+      return []
+    }
+  });
+
+  //--Load Current Selected Profile on first render
+  //--(after getting profiles from Local Storage)
+  useEffect(() => {
+    if (profiles.length > 0) {
+      const selectedProf = localStorage.getItem("selectedProfile");
+      setSelectedProfile(JSON.parse(selectedProf));
+    }
+  }, [profiles.length] )
+
 
   return (
     <div className="App">
@@ -29,6 +51,9 @@ function App() {
           difficulty={difficulty}
           totalQuestions={totalQuestions}
           setAppSection={setAppSection}
+          selectedProfile={selectedProfile}
+          setSelectedProfile={setSelectedProfile}
+          setProfiles={setProfiles}
         />
         : <Menu
           gameSettings={{
@@ -42,6 +67,11 @@ function App() {
           }}
           appSection={appSection}
           setAppSection={setAppSection}
+
+          selectedProfile={selectedProfile}
+          setSelectedProfile={setSelectedProfile}
+          profiles={profiles}
+          setProfiles={setProfiles}
         />
       }
     </div>

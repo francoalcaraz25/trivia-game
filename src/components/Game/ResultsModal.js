@@ -46,7 +46,7 @@ function ResultsModal(props) {
                 <h4>Time Elapsed</h4>
                 <p>{formatTimer(timerStartValue - timer)}</p>
                 <h4>Points Earned</h4>
-                <p>{totalPoints}pts</p>
+                <p>{totalPoints} pts</p>
             </div>
             <div className='modal-buttons'>
                 <button className='btn goback'

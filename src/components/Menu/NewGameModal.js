@@ -1,7 +1,7 @@
 import './NewGameModal.css';
 import { capitalizeWord, getCategories } from '../UtiltyFunctions.js';
 
-function NewGameModal({ gameSettings, setMenuSection, setAppSection }) {
+function NewGameModal({ gameSettings, setMenuSection, setAppSection, selectedProfile }) {
     //--Game Settings Data------------
     const {
         category: selectedCategory,
@@ -31,10 +31,16 @@ function NewGameModal({ gameSettings, setMenuSection, setAppSection }) {
             <button className='close-button'
                 onClick={() => setMenuSection("")}
             >&times;</button>
+
             <h2 className='newgame-title'>New Game</h2>
+            
+            <div className='profile'>
+                <h5>{selectedProfile.name}</h5>
+                <h5>{selectedProfile.points} pts</h5>
+            </div>
 
             <h4>Category</h4>
-            <select className='newgame-category'
+            <select className='selector newgame-category'
                 defaultValue={selectedCategory.id}
                 onChange={ev => handleSelectCategory(ev.target.value)}
                 >

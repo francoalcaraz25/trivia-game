@@ -1,0 +1,36 @@
+.profiles-crud {
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    column-gap: 2rem;
+}
+
+.profile-new {
+    width: 4rem;
+    background-color: rgb(43, 189, 60);
+}
+.profile-new:hover {
+    background-color: lime;
+    color: white;
+    box-shadow: 0 .2rem black;
+}
+
+.profile-delete {
+    width: 4rem;
+    background-color: rgb(230, 20, 20);
+}
+.profile-delete:hover {
+    background-color: red;
+    color: white;
+    box-shadow: 0 .2rem black;
+}
+
+.profiles-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+}

@@ -7,23 +7,12 @@
     font-size: 1.8rem;
 }
 
-.newgame-category {
-    padding: .5rem;
-    width: 80%;
-
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: .2rem;
-
-    background-color: rgb(200, 200, 200);
-    border: none;
-    border-radius: 10px;
+.NewGameModal .profile {
+    width: 60%;
 }
-.newgame-category option {
-    background-color: white;
-    border-bottom: 1px solid darkgray;
+.NewGameModal .profile h5 {
+    margin: 0 0 1rem 0;
 }
-
 
 .NewGameModal label, .NewGameModal input {
     cursor: pointer;

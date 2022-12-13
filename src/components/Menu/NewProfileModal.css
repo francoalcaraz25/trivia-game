@@ -1,0 +1,21 @@
+
+.newname {
+    margin-top: .5rem;
+    padding: .5rem;
+    font-weight: bold;
+}
+
+.create-profile {
+    margin-top: 2rem;
+}
+.create-profile:hover, .confirm:hover {
+    background-color: lime;
+}
+
+.confirm-modal {
+    text-align: center;
+}
+
+.delete-modal {
+    text-align: center;
+}

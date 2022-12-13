@@ -13,7 +13,10 @@ function Game(props) {
         categoryName,
         difficulty,
         totalQuestions,
-        setAppSection //--Lets you go back to the Main Menu
+        setAppSection, //--Lets you go back to the Main Menu
+        selectedProfile,
+        setSelectedProfile,
+        setProfiles
     } = props;
 
     //--Game State Data----------------
@@ -59,6 +62,7 @@ function Game(props) {
             case "easy": points = 10; break;
             case "medium": points = 20; break;
             case "hard": points = 30; break;
+            default: points = 0; break;
         }
         questionPoints.current = points;
         setTotalPoints(0); //--reset points counter
@@ -123,6 +127,63 @@ function Game(props) {
         stopTimer();
     }
 
+    //--Upadting Profile Stats after End Game---
+    useEffect(() => {
+        if (!gameOn && questions.length > 0) {
+            //--Updating CUrrent Profile Stats-----
+            setSelectedProfile(prevProf => {
+                //--Number of correct answers
+                const correctQuestions = questions
+                    .filter(question => question.status === "correct").length;
+
+                //--New Profile object to hold the update
+                const newProf = {name: prevProf.name};
+
+                //--Adding number of questions anwered correctly
+                newProf.corrects = parseInt(prevProf.corrects) + correctQuestions;
+
+                //--Adding number of questions answered wrongly
+                newProf.wrongs = parseInt(totalQuestions) - correctQuestions;
+
+                //--Perfect game? +1
+                if (parseInt(totalQuestions) === correctQuestions) {
+                    newProf.perfects = parseInt(prevProf.perfects) + 1;
+                } else {
+                    newProf.perfects = prevProf.perfects;
+                }
+
+                //--Games played +1
+                newProf.gamesPlayed = parseInt(prevProf.gamesPlayed) + 1;
+
+                //--Adding earned total points
+                newProf.points = parseInt(prevProf.points) + totalPoints;
+
+
+                //--Also Update profiles array
+                setProfiles((prevProfs => {
+                    const newProfs = prevProfs.map(prof => {
+                        if (prof.name === selectedProfile.name) {
+                            //--Returning updated selected profile instead of old one
+                            return newProf;
+                        } else {
+                            return prof;
+                        }
+                    });
+                    
+                    //--Update Local Storage (profiles)
+                    localStorage.setItem("profiles", JSON.stringify(newProfs));
+
+                    return [...newProfs];
+                }))
+
+
+                //--Update Local Storage (selectedProfile)
+                localStorage.setItem("selectedProfile", JSON.stringify(newProf));
+                return {...newProf};
+            });
+        }
+    }, [gameOn]);
+
     //==Utility Functions============================
 
     //--Start Timer---------------------
@@ -161,7 +222,6 @@ function Game(props) {
 
     //--Loading the Next Question-------------------------
     const nextQuestion = () => {
-
         //--Moving to Next Question
         setQuestions(prevQuestions => {            
             if (currentQuestionNumber + 1 <= prevQuestions.length) {
@@ -225,6 +285,10 @@ function Game(props) {
                         answerQuestion={answerQuestion}
                         questionPoints={questionPoints.current}
                     />
+                    <div className='profile footer'>
+                        <h5>{selectedProfile.name}</h5>
+                        <h5>{selectedProfile.points} pts</h5>
+                    </div>
                     
                     {!gameOn && questions.length > 0
                         ? <ResultsModal

@@ -1,0 +1,35 @@
+.records-tip {
+    text-align: center;
+    font-style: italic;
+}
+
+.records-table{
+    border-collapse: collapse;
+}
+
+.records-table th, .records-table td {
+    border: 1px solid darkgray;
+}
+
+.records-table th {
+    cursor: pointer;
+}
+.records-table th:hover {
+    background-color: rgb(220, 220, 220);
+}
+.records-table th.order-by {
+    background-color: gray;
+    color: white;
+}
+
+/* .records-table tr:nth-child(even) {
+    background-color: rgb(220, 220, 220);
+} */
+
+.records-table td.order-by {
+    background-color: rgb(220, 220, 220);
+}
+
+.records-table tbody tr:hover {
+    background-color: rgb(220, 220, 220);
+}

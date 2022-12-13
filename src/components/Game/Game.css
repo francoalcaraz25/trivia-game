@@ -4,23 +4,35 @@
 }
 
 .Game {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.Game .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* padding: .5rem; */
+  pointer-events: none;
+  box-sizing: border-box;
+}
+.Game .footer h5 {
+  margin: 1rem;
 }
 
 .loading {
-    position: absolute;
-    left: 50%;
-    top: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
 
-    width: 64px;
-    height: 64px;
+  width: 64px;
+  height: 64px;
 
-    border: .5rem solid rgba(0, 0, 0, .2);
-    border-top: .5rem solid darkgray;
-    border-radius: 50%;
+  border: .5rem solid rgba(0, 0, 0, .2);
+  border-top: .5rem solid darkgray;
+  border-radius: 50%;
 
-    animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
